@@ -19,9 +19,9 @@ const ExpenseList = (props) => {
           onSavePickedYear={onChangePickedYear}
           selectedYear={pickedYear}
         />
-        {props.items.map((expense, index) => (
+        {props.items.map((expense) => (
           <ExpenseItem
-            key={index}
+            key={expense.id}
             title={expense.title}
             amount={expense.amount}
             date={expense.date}
