@@ -10,8 +10,8 @@ const ExpenseList = (props) => {
   const onChangePickedYear = (event) => {
     const year = event.target.value;
     setPickedYear(year);
-    console.log(year);
   };
+
   return (
     <>
       <Card className="expenses">
