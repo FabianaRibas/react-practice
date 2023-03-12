@@ -10,7 +10,12 @@ const ExpenseList = (props) => {
   const onChangePickedYear = (event) => {
     const year = event.target.value;
     setPickedYear(year);
+    console.log(pickedYear);
   };
+
+  const filteredExpenses = props.items.filter(
+    (item) => item.date.getFullYear().toString() === pickedYear
+  );
 
   return (
     <>
@@ -19,14 +24,18 @@ const ExpenseList = (props) => {
           onSavePickedYear={onChangePickedYear}
           selectedYear={pickedYear}
         />
-        {props.items.map((expense) => (
-          <ExpenseItem
-            key={expense.id}
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-          />
-        ))}
+        {filteredExpenses.length > 0 ? (
+          filteredExpenses.map((expense) => (
+            <ExpenseItem
+              key={expense.id}
+              title={expense.title}
+              amount={expense.amount}
+              date={expense.date}
+            />
+          ))
+        ) : (
+          <h4 style={{ color: "white" }}>...no expenses found</h4>
+        )}
       </Card>
     </>
   );
