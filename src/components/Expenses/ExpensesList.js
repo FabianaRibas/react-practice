@@ -1,8 +1,8 @@
 import React from "react";
-import "./ExpenseList.css";
+import "./ExpensesList.css";
 import ExpenseItem from "./ExpenseItem";
 
-const ExpenseList = (props) => {
+const ExpensesList = (props) => {
   if (props.items.length === 0) {
     return <h3 className="expenses-list__fallback">Found no expenses...</h3>;
   }
@@ -20,4 +20,4 @@ const ExpenseList = (props) => {
   );
 };
 
-export default ExpenseList;
+export default ExpensesList;
