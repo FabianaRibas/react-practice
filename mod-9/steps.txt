@@ -1,0 +1,5 @@
+- split the app into components
+- handle submit anb reset button click events
+- manage state
+- output results conditionally
+- styling
