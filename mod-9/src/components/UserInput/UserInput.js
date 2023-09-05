@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const initialUserInput = {
-  'current-saving': 10000,
-  'yearly-contribution': 1200,
-  'expected-return': 7,
+  "current-savings": 10000,
+  "yearly-contribution": 120,
+  "expected-return": 7,
   duration: 10,
 };
 
-function UserInput(props) {
+const UserInput = (props) => {
   const [userInput, setUserInput] = useState(initialUserInput);
-
-  props.onCalculateHandler(userInput);
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log('SUBMIT');
-    //...
+    console.log("SUBMIT");
+    props.onCalculateHandler(userInput);
   };
 
   const resetHandler = (event) => {
@@ -30,6 +28,7 @@ function UserInput(props) {
         [input]: value,
       };
     });
+    console.log(input);
   };
 
   return (
@@ -38,7 +37,7 @@ function UserInput(props) {
         <p>
           <label htmlFor="current-savings">Current Savings ($)</label>
           <input
-            value={userInput['current-saving']}
+            value={userInput["current-savings"]}
             onChange={(event) =>
               inputChangeHandler(event.target.id, event.target.value)
             }
@@ -49,7 +48,7 @@ function UserInput(props) {
         <p>
           <label htmlFor="yearly-contribution">Yearly Savings ($)</label>
           <input
-            value={userInput['yearly-contribution']}
+            value={userInput["yearly-contribution"]}
             onChange={(event) =>
               inputChangeHandler(event.target.id, event.target.value)
             }
@@ -64,7 +63,7 @@ function UserInput(props) {
             Expected Interest (%, per year)
           </label>
           <input
-            value={userInput['expected-return']}
+            value={userInput["expected-return"]}
             onChange={(event) =>
               inputChangeHandler(event.target.id, event.target.value)
             }
@@ -94,5 +93,5 @@ function UserInput(props) {
       </p>
     </form>
   );
-}
+};
 export default UserInput;
